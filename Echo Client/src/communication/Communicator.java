@@ -33,27 +33,21 @@ public class Communicator {
 		}		 
 		return address;	
 	}
-	
-	
-	
-	
-	private void send(byte[] message) throws IOException{
-		 OutputStream output = echoSocket.getOutputStream();
-   
-		    output.write(message);
-		    output.flush();
-	}
 
 	
+	private void send(byte[] message) throws IOException{
+		OutputStream output = echoSocket.getOutputStream();
+		output.write(message);
+		output.flush();
+	}
 	
 	
-	private int receive() throws IOException{
-		
+	private byte[] receive() throws IOException{
 		InputStream input = echoSocket.getInputStream();
-	    
-		return input.read();
-	    
-	   
+		byte[] message = new byte[input.read()];
+		input.read(message);
+		return message;
+		
 	}
 	
 
