@@ -1,5 +1,5 @@
 package communication;
 
-public class Marshaller {
+public interface Marshaller {
 
 }
