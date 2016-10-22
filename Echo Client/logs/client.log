@@ -1,1 +1,6 @@
 2016-10-22 14:50:41,418 INFO  [main] ui.Application: my first log
+2016-10-22 15:15:24,518 INFO  [main] ui.Application: This is ui.Application class
+2016-10-22 15:27:22,345 INFO  [main] ui.Application: This is ui.Application class
+2016-10-22 15:31:40,273 INFO  [main] ui.Application: This is ui.Application class
+2016-10-22 15:31:40,274 DEBUG [main] ui.Application: This is a debug message
+2016-10-22 15:40:17,514 INFO  [main] ui.Application: Logger initialized
