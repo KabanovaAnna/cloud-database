@@ -19,8 +19,8 @@ public class LoggerInitializer {
 		logger = Logger.getLogger(c); 
 	}
 	
-	public Logger initialize(String logLevel) {
-		logger.setLevel(Level.toLevel(logLevel));
+	public Logger initialize(Level logLevel) {
+		logger.setLevel(logLevel);
 		addConsoleLogging();
 		addFileLogging();
 		return logger;
@@ -43,5 +43,4 @@ public class LoggerInitializer {
 			e.printStackTrace();
 		}
 	}
-	
 }

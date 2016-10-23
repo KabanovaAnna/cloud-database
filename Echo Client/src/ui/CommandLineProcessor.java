@@ -2,23 +2,43 @@ package ui;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+
+import org.apache.log4j.*;
 
 import communication.Communicator;
+import communication.StringMarshaller;
+
 public class CommandLineProcessor {
 	
 	private static String[] input;
-	private static String adress;
-	private static String port;
+	private static Communicator communicator;
+	private static Logger logger;
+	private static boolean quit;
+	
+	private static final int MAX_MESSAGE_SIZE = 128000;
+	private static final String LINE_START = "EchoClient> ";
 
-	public static void readInput() throws IOException {
+	public static void readInput() {
+		initializeLogger();
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		boolean quit = false;
 		while (!quit) {
-			System.out.print("EchoClient> ");
+			readInputLine(br);
+		}
+	}
+	
+	private static void initializeLogger() {
+		LoggerInitializer loggerInitializer = new LoggerInitializer(CommandLineProcessor.class);
+		logger = loggerInitializer.initialize(Level.ALL);
+	}
+	
+	private static void readInputLine(BufferedReader br) {
+		System.out.print(LINE_START);
+		try {
 			String inputLine = br.readLine();
 			input = inputLine.split(" ");
 			analyseInput();
+		} catch (IOException e) {
+			logger.error("Error caused by wrong console input");
 		}
 	}
 	
@@ -29,8 +49,7 @@ public class CommandLineProcessor {
 			        		break;
 			case "disconnect": disconnect();
 							break;
-			case "send": String msg = send();
-					//TODO;;
+			case "send": sendMessage();
 							break;	    
 			case "logLevel": logLevel();
 							break;
@@ -38,60 +57,97 @@ public class CommandLineProcessor {
 							break;
 			case "quit": quit();
 							break;
-			default: sendError();
+			default: errorMessage();
 		}
 	}
 	
 	private static void connectToServer() {
-		String ipAdress = input[1];
-		int port = Integer.valueOf(input[2]);
-		Communicator communicator;
-		try {
-			communicator = new Communicator(ipAdress, port);
-			System.out.println(Arrays.toString(communicator.receive()));
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (input.length > 2) {
+			String address = input[1];
+			int port = Integer.valueOf(input[2]);
+			try {
+				communicator = new Communicator(address, port);
+				StringMarshaller stringMarshaller = new StringMarshaller();
+				System.out.println(stringMarshaller.unmarshal(communicator.receive()));
+			} catch (IOException e) {
+				System.out.println(LINE_START + "Connection could not be established");
+			}
+		} else {
+			errorMessage();
 		}
 	}
 	
 	private static void disconnect(){
-		//TODO;;
-		System.out.println("Connection terminated: " + adress + "/" + port);
+		if (communicator == null) System.out.println(LINE_START + "Could not disconnect from server. "
+				+ "Make sure that connection was established.");
+		else {
+			try {
+				communicator.disconnectFromServer();
+				System.out.println(LINE_START + "Connection terminated: " + communicator.getAddress()
+						+ "/" + communicator.getPort());
+			} catch (IOException e) {
+				logger.error("Could not disconect from server");
+			} 
+		}
 	};
 	
-	private static String send(){
-		String msg = "";
-		for (int i=1; i<input.length; i++) {
-			msg = msg + input[i];
+	private static void sendMessage() {
+		if (communicator != null) {
+			String message = convertInputToMessage(input);
+			if (isMessageSizeValid(message)) {
+				StringMarshaller stringMarshaller = new StringMarshaller();
+				String recievedMessage = "";
+				try {
+					communicator.send(stringMarshaller.marshal(message));
+					recievedMessage = stringMarshaller.unmarshal(communicator.receive());
+					System.out.println(LINE_START + recievedMessage); 
+				} catch (IOException e) {
+					System.out.println(LINE_START + "Error. Not connected.");
+				}
+			}
+		} else {
+			System.out.println(LINE_START + "Error. Not connected.");
 		}
-		return msg;
 	};
+	
+	private static String convertInputToMessage(String[] stringArray) {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (int i = 1; i < stringArray.length; i++) {
+			stringBuilder.append(stringArray[i] + " ");
+		}
+		return stringBuilder.toString();
+	}
+	
+	private static boolean isMessageSizeValid(String message) {
+		return message.getBytes().length <= MAX_MESSAGE_SIZE;
+	}
 	
 	private static void logLevel(){
-		switch (input[1]) {
-		case "ALL": break;
-		case "DEBUG": break;
-		case "INFO": break;
-		case "WARN": break;
-		case "ERROR": break;
-		case "FATAL": break;
-		case "OFF": break;
+		if (input.length >= 2) {
+			String logLevel = input[1];
+			logger.setLevel(Level.toLevel(logLevel));
+			System.out.println(LINE_START + "Current logging level: " + logger.getLevel());
+		} else {
+			errorMessage();
 		}
-		//TODO;;
-		System.out.println("Current log4j log level: " + input[1]);
 	};
 	
-	private static void help(){
-		
+	private static void help() {
+		System.out.println(LINE_START + "This message should describe how to help!");
 	};
 	
-	private static void quit(){
-		//TODO;;
-		System.out.println("Aplication exit!");
+	private static void quit() {
+		try {
+			if (communicator != null) communicator.disconnectFromServer();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println(LINE_START + "Application exit. Bye ;)");
+		quit = true;
 	};
 	
-	private static void sendError(){
-		System.out.println("Error! Unknown command!");
+	private static void errorMessage(){
+		System.out.println(LINE_START + "Error. Unknown command.");
 		help();
 	};
 	

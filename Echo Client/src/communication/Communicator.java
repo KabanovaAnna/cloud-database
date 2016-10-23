@@ -11,10 +11,14 @@ import java.util.List;
 public class Communicator {
 	
 	private Socket echoSocket;
-	public InputStream inputStream;
+	private InputStream inputStream;
 	private OutputStream outputStream;
+	private String address;
+	private int port;
 	
 	public Communicator (String address, int port) throws IOException{
+		this.address = address;
+		this.port = port;
 		echoSocket = new Socket(address, port);
 		inputStream = echoSocket.getInputStream();	
 		outputStream = echoSocket.getOutputStream();
@@ -42,5 +46,27 @@ public class Communicator {
 			convertedArray[i] = iterator.next();
 		}
 		return convertedArray;
+	}
+	
+	public void disconnectFromServer() throws IOException {
+		inputStream.close();
+		outputStream.close();
+		echoSocket.close();
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	public int getPort() {
+		return port;
+	}
+	
+	public void setPort(int port) {
+		this.port = port;
 	}
 }
