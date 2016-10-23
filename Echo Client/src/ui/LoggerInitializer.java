@@ -4,7 +4,8 @@ import java.io.IOException;
 
 import org.apache.log4j.*;
 
-/** This class is needed to create logger and enable logging for console and file,
+/** 
+ * This class is needed to create logger and enable logging for console and file,
  * that can be found under "logs/client.log". Information is logged at all levels.
  */
 public class LoggerInitializer {
@@ -18,8 +19,8 @@ public class LoggerInitializer {
 		logger = Logger.getLogger(c); 
 	}
 	
-	public Logger initialize() {
-		logger.setLevel(Level.ALL);
+	public Logger initialize(String logLevel) {
+		logger.setLevel(Level.toLevel(logLevel));
 		addConsoleLogging();
 		addFileLogging();
 		return logger;

@@ -3,52 +3,44 @@ package communication;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class Communicator {
 	
 	private Socket echoSocket;
+	public InputStream inputStream;
+	private OutputStream outputStream;
 	
-	Communicator (String address, int port) throws IOException{
-		echoSocket = new Socket(parseIP(address), port);
+	public Communicator (String address, int port) throws IOException{
+		echoSocket = new Socket(address, port);
+		inputStream = echoSocket.getInputStream();	
+		outputStream = echoSocket.getOutputStream();
 	}
 	
-	/**
-	 * This function parses the ip address from a string into a network 
-	 * InetAddress representation
-	 *
-	 * @param adr The ip address as string
-	 *
-	 * @return An InetAddress with the ip address, null on error
-	 * @throws UnknownHostException 
-	 */
-	private InetAddress parseIP(String adr){		
-		InetAddress address = null;
-		try {
-			address = InetAddress.getByName(adr);
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		}		 
-		return address;	
-	}
-
-	
-	private void send(byte[] message) throws IOException{
-		OutputStream output = echoSocket.getOutputStream();
-		output.write(message);
-		output.flush();
+	public void send(byte[] message) throws IOException {
+		outputStream.write(message);
+		outputStream.flush();
 	}
 	
-	
-	private byte[] receive() throws IOException{
-		InputStream input = echoSocket.getInputStream();
-		byte[] message = new byte[input.read()];
-		input.read(message);
-		return message;
-		
+	public byte[] receive() throws IOException {
+		List<Byte> readMessage = new ArrayList<>();
+		int readByte = inputStream.read();
+		readMessage.add((byte)readByte);
+		while (inputStream.available() > 0) {
+			readMessage.add((byte) inputStream.read());
+		}
+		return convertToByteArray(readMessage);
 	}
 	
-
+	private byte[] convertToByteArray(List<Byte> list) {
+		byte[] convertedArray = new byte[list.size()];
+		Iterator<Byte> iterator = list.iterator();
+		for (int i = 0; i < list.size(); i++) {
+			convertedArray[i] = iterator.next();
+		}
+		return convertedArray;
+	}
 }

@@ -1,52 +1,65 @@
 package ui;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
+
+import communication.Communicator;
 public class CommandLineProcessor {
 	
-	String [] input;
-	String adress;
-	String port;
+	private static String[] input;
+	private static String adress;
+	private static String port;
 
-	void readString() {
-		int i=0;
-		Scanner scanner = new Scanner(System.in);
-		while(scanner.hasNext()) {
-			input[i] = scanner.next();
-			i++;
+	public static void readInput() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		boolean quit = false;
+		while (!quit) {
+			System.out.print("EchoClient> ");
+			String inputLine = br.readLine();
+			input = inputLine.split(" ");
+			analyseInput();
 		}
 	}
 	
-	void analyseInput() {
-		switch (input[0]) {
-		case "connect": connectToServer();
-		        break;
-		case "disconnect": disconnect();
-		        break;
-		case "send": String msg = send();
-				//TODO;;
-				break;	    
-		case "logLevel": logLevel();
-		        break;
-		case "help": help();
-		        break;
-		case "quit": quit();
-		        break;
-		default: sendError();
+	private static void analyseInput() {
+		String command = input[0];
+		switch (command) {
+			case "connect": connectToServer();
+			        		break;
+			case "disconnect": disconnect();
+							break;
+			case "send": String msg = send();
+					//TODO;;
+							break;	    
+			case "logLevel": logLevel();
+							break;
+			case "help": help();
+							break;
+			case "quit": quit();
+							break;
+			default: sendError();
 		}
 	}
 	
-	void connectToServer(){
-		adress = input[1];
-		port = input[2];
-		//TODO;;
-		System.out.println("Connection to MSGR Server estblished: " + adress + "/" + port);
+	private static void connectToServer() {
+		String ipAdress = input[1];
+		int port = Integer.valueOf(input[2]);
+		Communicator communicator;
+		try {
+			communicator = new Communicator(ipAdress, port);
+			System.out.println(Arrays.toString(communicator.receive()));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	void disconnect(){
+	private static void disconnect(){
 		//TODO;;
 		System.out.println("Connection terminated: " + adress + "/" + port);
 	};
 	
-	String send(){
+	private static String send(){
 		String msg = "";
 		for (int i=1; i<input.length; i++) {
 			msg = msg + input[i];
@@ -54,7 +67,7 @@ public class CommandLineProcessor {
 		return msg;
 	};
 	
-	void logLevel(){
+	private static void logLevel(){
 		switch (input[1]) {
 		case "ALL": break;
 		case "DEBUG": break;
@@ -68,16 +81,16 @@ public class CommandLineProcessor {
 		System.out.println("Current log4j log level: " + input[1]);
 	};
 	
-	void help(){
+	private static void help(){
 		
 	};
 	
-	void quit(){
+	private static void quit(){
 		//TODO;;
 		System.out.println("Aplication exit!");
 	};
 	
-	void sendError(){
+	private static void sendError(){
 		System.out.println("Error! Unknown command!");
 		help();
 	};
