@@ -3,6 +3,7 @@ package communication;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -16,10 +17,13 @@ public class Communicator {
 	private String address;
 	private int port;
 	
+	private final int CONNECTION_TIMEOUT = 2000;
+	
 	public Communicator (String address, int port) throws IOException{
 		this.address = address;
 		this.port = port;
-		echoSocket = new Socket(address, port);
+		echoSocket = new Socket();
+		echoSocket.connect(new InetSocketAddress(address, port), CONNECTION_TIMEOUT);
 		inputStream = echoSocket.getInputStream();	
 		outputStream = echoSocket.getOutputStream();
 	}

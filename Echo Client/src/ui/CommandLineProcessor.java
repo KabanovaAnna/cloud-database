@@ -17,6 +17,15 @@ public class CommandLineProcessor {
 	
 	private static final int MAX_MESSAGE_SIZE = 128000;
 	private static final String LINE_START = "EchoClient> ";
+	private static final String HELP_MESSAGE = "Welcome to EchoClient!\r\n\r\n"
+			+ "Commands:\r\nconnect <address> <port> - tries to establish a TCP"
+			+ "- connection to the server based on the given server address and "
+			+ "the port\r\ndisconnect - tries to disconnect from the connected "
+			+ "server\r\nsend <message> - sends a text message to the echo server "
+			+ "according to the communication protocol\r\nlogLevel<level> - sets "
+			+ "the logger to the specified log level\r\nhelp - information about "
+			+ "all possible commands\r\nquit - tears down the active connection "
+			+ "to the server and exits the program execution\n";
 
 	public static void readInput() {
 		initializeLogger();
@@ -36,13 +45,13 @@ public class CommandLineProcessor {
 		try {
 			String inputLine = br.readLine();
 			input = inputLine.split(" ");
-			analyseInput();
+			parseInput();
 		} catch (IOException e) {
 			logger.error("Error caused by wrong console input");
 		}
 	}
 	
-	private static void analyseInput() {
+	private static void parseInput() {
 		String command = input[0];
 		switch (command) {
 			case "connect": connectToServer();
@@ -64,16 +73,32 @@ public class CommandLineProcessor {
 	private static void connectToServer() {
 		if (input.length > 2) {
 			String address = input[1];
-			int port = Integer.valueOf(input[2]);
-			try {
-				communicator = new Communicator(address, port);
-				StringMarshaller stringMarshaller = new StringMarshaller();
-				System.out.println(stringMarshaller.unmarshal(communicator.receive()));
-			} catch (IOException e) {
-				System.out.println(LINE_START + "Connection could not be established");
+			int port = parsePort();
+			if (port > 0) {
+				connectToServerWithAddressAndPort(address, port);
 			}
 		} else {
 			errorMessage();
+		}
+	}
+	
+	private static int parsePort() {
+		int port = -1;
+		try {
+			port = Integer.valueOf(input[2]);
+		} catch (NumberFormatException e) {
+			System.out.println(LINE_START + "Port must be a number.");
+		}
+		return port;
+	}
+	
+	private static void connectToServerWithAddressAndPort(String address, int port) {
+		try {
+			communicator = new Communicator(address, port);
+			StringMarshaller stringMarshaller = new StringMarshaller();
+			System.out.println(stringMarshaller.unmarshal(communicator.receive()));
+		} catch (IOException e) {
+			System.out.println(LINE_START + "Connection could not be established");
 		}
 	}
 	
@@ -95,20 +120,23 @@ public class CommandLineProcessor {
 		if (communicator != null) {
 			String message = convertInputToMessage(input);
 			if (isMessageSizeValid(message)) {
-				StringMarshaller stringMarshaller = new StringMarshaller();
-				String recievedMessage = "";
-				try {
-					communicator.send(stringMarshaller.marshal(message));
-					recievedMessage = stringMarshaller.unmarshal(communicator.receive());
-					System.out.println(LINE_START + recievedMessage); 
-				} catch (IOException e) {
-					System.out.println(LINE_START + "Error. Not connected.");
-				}
+				marshalAndSendMessage(message);
 			}
 		} else {
 			System.out.println(LINE_START + "Error. Not connected.");
 		}
 	};
+	
+	private static void marshalAndSendMessage(String message) {
+		StringMarshaller stringMarshaller = new StringMarshaller();
+		try {
+			communicator.send(stringMarshaller.marshal(message));
+			String recievedMessage = stringMarshaller.unmarshal(communicator.receive());
+			System.out.println(LINE_START + recievedMessage); 
+		} catch (IOException e) {
+			System.out.println(LINE_START + "Error. Not connected.");
+		}
+	}
 	
 	private static String convertInputToMessage(String[] stringArray) {
 		StringBuilder stringBuilder = new StringBuilder();
@@ -133,7 +161,7 @@ public class CommandLineProcessor {
 	};
 	
 	private static void help() {
-		System.out.println(LINE_START + "This message should describe how to help!");
+		System.out.println(LINE_START + HELP_MESSAGE);
 	};
 	
 	private static void quit() {
