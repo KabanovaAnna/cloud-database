@@ -432,3 +432,5 @@
 2016-10-24 23:06:37,145 INFO  [main] communication.Communicator: Unmarshaled message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
 2016-10-24 23:07:13,637 ERROR [main] communication.Communicator: connect timed out
 2016-10-24 23:08:29,250 INFO  [main] ui.Application: Application started
+2016-10-24 23:18:08,665 ERROR [main] communication.logic.Communicator: connect timed out
+2016-10-24 23:18:24,691 ERROR [main] communication.logic.Communicator: port out of range:234523521

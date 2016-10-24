@@ -16,7 +16,7 @@ public class LoggerInitializer {
 	private static final String FILE_LOG_PATTERN = "%d{ISO8601} %-5p [%t] %c: %m%n";
 	
 	private static Map<String, Logger> loggers = new HashMap<>();
-	private static Level currentLogLevel = Level.ALL;
+	private static Level currentLogLevel = Level.ERROR;
 	
 	public static Logger initialize(Class c) {
 		if (isCreated(c)) {
