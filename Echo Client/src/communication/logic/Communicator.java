@@ -8,6 +8,7 @@ import ui.LoggerInitializer;
 public class Communicator {
 
 	private static final int MAX_MESSAGE_SIZE = 128000;
+	private static final int ERROR_RESPONSE = -1;
 
 	private Logger logger;
 	private NetworkCommunicator communicator;
@@ -29,7 +30,7 @@ public class Communicator {
 	}
 
 	private int parsePort(String port) {
-		int parsedPort = -1;
+		int parsedPort = ERROR_RESPONSE;
 		try {
 			parsedPort = Integer.valueOf(port);
 		} catch (NumberFormatException e) {
