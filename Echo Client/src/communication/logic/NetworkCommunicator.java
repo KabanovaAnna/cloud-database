@@ -1,4 +1,4 @@
-package communication;
+package communication.logic;
 
 import java.io.IOException;
 import java.io.InputStream;

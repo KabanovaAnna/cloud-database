@@ -1,4 +1,4 @@
-package communication;
+package communication.marshaller;
 
 import java.nio.charset.Charset;
 

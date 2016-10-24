@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 import org.apache.log4j.*;
 
-import communication.Communicator;
+import communication.logic.Communicator;
 
 public class CommandLineProcessor {
 

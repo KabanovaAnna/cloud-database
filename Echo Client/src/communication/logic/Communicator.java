@@ -1,7 +1,8 @@
-package communication;
+package communication.logic;
 
 import org.apache.log4j.Logger;
 
+import communication.marshaller.StringMarshaller;
 import ui.LoggerInitializer;
 
 public class Communicator {

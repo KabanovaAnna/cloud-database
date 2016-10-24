@@ -1,4 +1,4 @@
-package communication;
+package communication.marshaller;
 
 public interface Marshaller {
 
