@@ -10,8 +10,7 @@ public class Application {
 	}
 	
 	private static void initializeLogger() {
-		LoggerInitializer li = new LoggerInitializer(Application.class);
-		Logger logger = li.initialize(Level.ALL);
+		Logger logger = LoggerInitializer.initialize(Application.class);
 		logger.info("Application started");
 	}
 }

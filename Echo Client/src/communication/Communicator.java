@@ -1,63 +1,108 @@
 package communication;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.apache.log4j.Logger;
+
+import ui.LoggerInitializer;
 
 public class Communicator {
-	
-	private Socket echoSocket;
-	private InputStream inputStream;
-	private OutputStream outputStream;
+
+	private static final int MAX_MESSAGE_SIZE = 128000;
+
+	private Logger logger;
+	private NetworkCommunicator communicator;
 	private String address;
 	private int port;
-	
-	private final int CONNECTION_TIMEOUT = 2000;
-	
-	public Communicator (String address, int port) throws IOException{
+
+	public boolean establishConnection(String address, String port) {
+		initializeLogger();
 		this.address = address;
-		this.port = port;
-		echoSocket = new Socket();
-		echoSocket.connect(new InetSocketAddress(address, port), CONNECTION_TIMEOUT);
-		inputStream = echoSocket.getInputStream();	
-		outputStream = echoSocket.getOutputStream();
+		this.port = parsePort(port);
+		if (this.port > 0) {
+			return connectToServerWithAddressAndPort(address, this.port);
+		} else
+			return false;
 	}
-	
-	public void send(byte[] message) throws IOException {
-		outputStream.write(message);
-		outputStream.flush();
+
+	private void initializeLogger() {
+		logger = LoggerInitializer.initialize(Communicator.class);
 	}
-	
-	public byte[] receive() throws IOException {
-		List<Byte> readMessage = new ArrayList<>();
-		int readByte = inputStream.read();
-		readMessage.add((byte)readByte);
-		while (inputStream.available() > 0) {
-			readMessage.add((byte) inputStream.read());
+
+	private int parsePort(String port) {
+		int parsedPort = -1;
+		try {
+			parsedPort = Integer.valueOf(port);
+		} catch (NumberFormatException e) {
+			logger.warn("Port could not be parsed, it is not a number");
 		}
-		return convertToByteArray(readMessage);
+		return parsedPort;
 	}
-	
-	private byte[] convertToByteArray(List<Byte> list) {
-		byte[] convertedArray = new byte[list.size()];
-		Iterator<Byte> iterator = list.iterator();
-		for (int i = 0; i < list.size(); i++) {
-			convertedArray[i] = iterator.next();
+
+	private boolean connectToServerWithAddressAndPort(String address, int port) {
+		try {
+			communicator = new NetworkCommunicator(address, port);
+			return true;
+		} catch (Exception e) {
+			logger.error(e.getMessage());
 		}
-		return convertedArray;
+		return false;
 	}
-	
-	public void disconnectFromServer() throws IOException {
-		inputStream.close();
-		outputStream.close();
-		echoSocket.close();
+
+	public String receiveMessage() {
+		String message;
+		if (communicator != null) {
+			StringMarshaller stringMarshaller = new StringMarshaller();
+			try {
+				message = stringMarshaller.unmarshal(communicator.receive());
+				logger.info("Unmarshaled message: " + message);
+			} catch (Exception e) {
+				message = "Error!" + e.getMessage();
+				logger.error(message);
+			}
+		} else {
+			message = "Error! Message can not be sent because no connection to server was established";
+			logger.error(message);
+		}
+		return message;
 	}
-	
+
+	public boolean sendMessage(String message) {
+		logger.info("Message to send: " + message);
+		if (communicator != null) {
+			if (isMessageSizeValid(message)) {
+				return marshalAndSendMessage(message);
+			}
+		}
+		return false;
+	}
+
+	private boolean isMessageSizeValid(String message) {
+		return message.getBytes().length <= MAX_MESSAGE_SIZE;
+	}
+
+	private boolean marshalAndSendMessage(String message) {
+		StringMarshaller stringMarshaller = new StringMarshaller();
+		try {
+			communicator.send(stringMarshaller.marshal(message));
+			return true;
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+		}
+		return false;
+	}
+
+	public boolean disconnect() {
+		if (communicator != null) {
+			try {
+				communicator.disconnectFromServer();
+				this.communicator = null;
+				return true;
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+			}
+		}
+		return false;
+	}
+
 	public String getAddress() {
 		return address;
 	}

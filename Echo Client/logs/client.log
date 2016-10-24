@@ -179,3 +179,256 @@
 2016-10-23 22:20:19,183 INFO  [main] ui.Application: Application started
 2016-10-23 22:27:02,271 INFO  [main] ui.Application: Application started
 2016-10-23 22:27:28,424 INFO  [main] ui.Application: Application started
+2016-10-24 19:41:28,179 INFO  [main] ui.Application: Application started
+2016-10-24 19:44:56,301 INFO  [main] ui.Application: Application started
+2016-10-24 19:45:49,165 INFO  [main] ui.Application: Application started
+2016-10-24 19:47:02,522 INFO  [main] ui.Application: Application started
+2016-10-24 20:05:56,882 INFO  [main] ui.Application: Application started
+2016-10-24 20:06:06,747 INFO  [main] ui.Application: Application started
+2016-10-24 20:06:29,133 INFO  [main] communication.Communicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 20:06:29,225 INFO  [main] communication.Communicator: Connection established successfuly
+2016-10-24 20:07:13,429 INFO  [main] communication.Communicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 13]
+2016-10-24 20:14:58,263 INFO  [main] ui.Application: Application started
+2016-10-24 20:15:06,230 INFO  [main] communication.Communicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 20:15:06,300 INFO  [main] communication.Communicator: Connection established successfuly
+2016-10-24 20:15:06,308 INFO  [main] communication.Communicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 20:15:06,309 INFO  [main] communication.StringMarshaller: Reply message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+2016-10-24 20:15:48,673 INFO  [main] communication.StringMarshaller: Message to send: hello world 
+2016-10-24 20:15:48,673 INFO  [main] communication.StringMarshaller: Message to send: hello world 
+2016-10-24 20:15:48,673 INFO  [main] communication.Communicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 13]
+2016-10-24 20:15:48,701 INFO  [main] communication.Communicator: Recieved message in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 10, 13]
+2016-10-24 20:15:48,701 INFO  [main] communication.StringMarshaller: Reply message: hello world 
+
+2016-10-24 20:15:48,701 INFO  [main] communication.StringMarshaller: Reply message: hello world 
+
+2016-10-24 20:17:12,008 INFO  [main] ui.Application: Application started
+2016-10-24 20:17:16,408 INFO  [main] communication.Communicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 20:17:16,486 INFO  [main] communication.Communicator: Connection established successfuly
+2016-10-24 20:17:16,495 INFO  [main] communication.Communicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 20:17:16,495 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+2016-10-24 20:17:21,757 INFO  [main] communication.StringMarshaller: Message to send: hello world 
+2016-10-24 20:17:21,757 INFO  [main] communication.StringMarshaller: Message to send: hello world 
+2016-10-24 20:17:21,757 INFO  [main] communication.Communicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 13]
+2016-10-24 20:17:21,763 INFO  [main] communication.Communicator: Recieved message in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 10, 13]
+2016-10-24 20:17:21,763 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: hello world 
+
+2016-10-24 20:17:21,763 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: hello world 
+
+2016-10-24 20:17:33,312 INFO  [main] ui.Application: Application started
+2016-10-24 20:17:33,329 INFO  [main] ui.Application: Application started
+2016-10-24 20:17:45,147 INFO  [main] communication.Communicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 20:17:45,233 INFO  [main] communication.Communicator: Connection established successfuly
+2016-10-24 20:17:45,252 INFO  [main] communication.Communicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 20:17:55,785 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+2016-10-24 20:18:06,406 INFO  [main] communication.StringMarshaller: Message to send: hello world 
+2016-10-24 20:18:06,406 INFO  [main] communication.StringMarshaller: Message to send: hello world 
+2016-10-24 20:18:36,288 INFO  [main] communication.Communicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 13]
+2016-10-24 20:18:36,305 INFO  [main] communication.Communicator: Recieved message in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 10, 13]
+2016-10-24 21:00:27,450 INFO  [main] ui.Application: Application started
+2016-10-24 21:01:10,723 INFO  [main] ui.Application: Application started
+2016-10-24 21:01:17,034 INFO  [main] communication.Communicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 21:01:17,273 INFO  [main] communication.Communicator: Connection established successfuly
+2016-10-24 21:01:17,356 INFO  [main] communication.Communicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 21:01:17,356 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+2016-10-24 21:02:24,348 INFO  [main] ui.Application: Application started
+2016-10-24 21:02:33,558 INFO  [main] ui.Application: Application started
+2016-10-24 21:02:39,423 INFO  [main] communication.Communicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 21:02:39,500 INFO  [main] communication.Communicator: Connection established successfuly
+2016-10-24 21:02:39,517 INFO  [main] communication.Communicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 21:02:46,225 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+2016-10-24 21:03:00,097 INFO  [main] ui.Application: Application started
+2016-10-24 21:03:16,203 INFO  [main] communication.Communicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 21:03:16,325 INFO  [main] communication.Communicator: Connection established successfuly
+2016-10-24 21:03:16,368 INFO  [main] communication.Communicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 21:03:16,369 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+2016-10-24 21:03:28,469 INFO  [main] communication.StringMarshaller: Message to send: hello world 
+2016-10-24 21:03:28,469 INFO  [main] communication.StringMarshaller: Message to send: hello world 
+2016-10-24 21:03:28,469 INFO  [main] communication.Communicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 13]
+2016-10-24 21:03:28,476 INFO  [main] communication.Communicator: Recieved message in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 10, 13]
+2016-10-24 21:03:28,476 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: hello world 
+
+2016-10-24 21:03:28,476 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: hello world 
+
+2016-10-24 21:03:46,024 INFO  [main] ui.Application: Application started
+2016-10-24 21:04:06,582 INFO  [main] ui.Application: Application started
+2016-10-24 21:09:02,961 INFO  [main] ui.Application: Application started
+2016-10-24 21:09:13,361 INFO  [main] communication.Communicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 21:09:13,448 INFO  [main] communication.Communicator: Connection established successfuly
+2016-10-24 21:09:13,492 INFO  [main] communication.Communicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 21:09:13,493 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+2016-10-24 21:09:36,153 INFO  [main] communication.StringMarshaller: Message to send: hi 
+2016-10-24 21:09:36,153 INFO  [main] communication.StringMarshaller: Message to send: hi 
+2016-10-24 21:09:36,189 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: hi 
+
+2016-10-24 21:09:36,189 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: hi 
+
+2016-10-24 21:10:40,111 INFO  [main] ui.Application: Application started
+2016-10-24 21:10:49,891 INFO  [main] communication.Communicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 21:10:50,013 INFO  [main] communication.Communicator: Connection established successfuly
+2016-10-24 21:10:50,055 INFO  [main] communication.Communicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 21:10:50,056 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+2016-10-24 21:14:38,101 INFO  [main] ui.Application: Application started
+2016-10-24 21:15:01,033 INFO  [main] communication.Communicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 21:15:01,033 INFO  [main] communication.Communicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 21:15:01,047 INFO  [main] communication.Communicator: Connection established successfuly
+2016-10-24 21:15:01,047 INFO  [main] communication.Communicator: Connection established successfuly
+2016-10-24 21:15:01,053 INFO  [main] communication.Communicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 21:15:01,053 INFO  [main] communication.Communicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 21:15:01,053 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+2016-10-24 21:15:01,053 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+2016-10-24 21:15:08,605 INFO  [main] communication.StringMarshaller: Message to send: hello 
+2016-10-24 21:15:08,605 INFO  [main] communication.StringMarshaller: Message to send: hello 
+2016-10-24 21:15:08,605 INFO  [main] communication.StringMarshaller: Message to send: hello 
+2016-10-24 21:15:08,606 INFO  [main] communication.Communicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 13]
+2016-10-24 21:15:08,606 INFO  [main] communication.Communicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 13]
+2016-10-24 21:15:08,612 INFO  [main] communication.Communicator: Recieved message in byte: [104, 101, 108, 108, 111, 32, 10, 13]
+2016-10-24 21:15:08,612 INFO  [main] communication.Communicator: Recieved message in byte: [104, 101, 108, 108, 111, 32, 10, 13]
+2016-10-24 21:15:08,613 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: hello 
+
+2016-10-24 21:15:08,613 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: hello 
+
+2016-10-24 21:15:08,613 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: hello 
+
+2016-10-24 21:19:53,869 INFO  [main] ui.Application: Application started
+2016-10-24 21:20:16,577 INFO  [main] communication.Communicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 21:20:16,656 INFO  [main] communication.Communicator: Connection established successfuly
+2016-10-24 21:20:16,702 INFO  [main] communication.Communicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 21:20:16,703 INFO  [main] communication.StringMarshaller: Unmarshaled recieved message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+
+2016-10-24 21:21:50,250 INFO  [main] ui.Application: Application started
+2016-10-24 21:21:55,273 INFO  [main] communication.Communicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 21:21:55,345 INFO  [main] communication.Communicator: Connection established successfuly
+2016-10-24 21:21:55,351 INFO  [main] communication.Communicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 21:22:04,140 INFO  [main] communication.Communicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 13]
+2016-10-24 21:22:04,162 INFO  [main] communication.Communicator: Recieved message in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 10, 13]
+2016-10-24 21:23:22,924 INFO  [main] communication.Communicator: Message to send in byte: [104, 105, 32, 13]
+2016-10-24 21:23:22,960 INFO  [main] communication.Communicator: Recieved message in byte: [104, 105, 32, 10, 13]
+2016-10-24 22:35:29,669 INFO  [main] ui.Application: Application started
+2016-10-24 22:35:45,315 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 22:35:45,402 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 22:35:45,488 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 22:36:00,474 INFO  [main] communication.NetworkCommunicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 13]
+2016-10-24 22:36:00,495 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 10, 13]
+2016-10-24 22:36:11,256 INFO  [main] communication.NetworkCommunicator: Connection to server was closed
+2016-10-24 22:37:05,097 INFO  [main] communication.NetworkCommunicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 13]
+2016-10-24 22:37:05,142 ERROR [main] communication.Communicator: Error!Socket closed
+2016-10-24 22:38:16,351 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 123.123/123235
+2016-10-24 22:38:16,351 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 123.123/123235
+2016-10-24 22:39:29,598 INFO  [main] ui.Application: Application started
+2016-10-24 22:39:35,743 WARN  [main] communication.Communicator: Port could not be parsed, it is not a number
+2016-10-24 22:39:45,808 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 123.123/124312412
+2016-10-24 22:39:45,850 ERROR [main] communication.Communicator: Connection was not established successfuly
+2016-10-24 22:39:45,850 ERROR [main] communication.Communicator: Connection was not established successfuly
+2016-10-24 22:40:24,100 INFO  [main] ui.Application: Application started
+2016-10-24 22:40:30,944 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 12.123/23421341
+2016-10-24 22:40:30,975 ERROR [main] communication.Communicator: Error. port out of range:23421341
+2016-10-24 22:41:34,194 INFO  [main] ui.Application: Application started
+2016-10-24 22:41:41,233 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 1234.2134523sfd/1235
+2016-10-24 22:41:41,554 ERROR [main] communication.Communicator: 1234.2134523sfd
+2016-10-24 22:42:16,162 INFO  [main] ui.Application: Application started
+2016-10-24 22:42:23,877 WARN  [main] communication.Communicator: Port could not be parsed, it is not a number
+2016-10-24 22:42:33,277 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 123.123/21342314
+2016-10-24 22:42:33,336 ERROR [main] communication.Communicator: port out of range:21342314
+2016-10-24 22:42:33,336 ERROR [main] communication.Communicator: port out of range:21342314
+2016-10-24 22:42:46,563 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 22:42:46,563 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 22:42:46,615 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 22:42:46,615 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 22:42:46,629 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 22:42:46,629 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 22:43:10,634 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 114.123.123.124/23421
+2016-10-24 22:43:10,634 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 114.123.123.124/23421
+2016-10-24 22:43:10,634 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 114.123.123.124/23421
+2016-10-24 22:43:12,661 ERROR [main] communication.Communicator: connect timed out
+2016-10-24 22:43:12,661 ERROR [main] communication.Communicator: connect timed out
+2016-10-24 22:43:12,661 ERROR [main] communication.Communicator: connect timed out
+2016-10-24 22:43:12,661 ERROR [main] communication.Communicator: connect timed out
+2016-10-24 22:43:56,849 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 22:43:56,849 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 22:43:56,849 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 22:43:56,849 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 22:43:56,879 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 22:43:56,879 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 22:43:56,879 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 22:43:56,879 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 22:43:56,906 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 22:43:56,906 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 22:43:56,906 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 22:43:56,906 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 22:44:09,336 INFO  [main] communication.NetworkCommunicator: Connection to server was closed
+2016-10-24 22:44:09,336 INFO  [main] communication.NetworkCommunicator: Connection to server was closed
+2016-10-24 22:44:09,336 INFO  [main] communication.NetworkCommunicator: Connection to server was closed
+2016-10-24 22:44:09,336 INFO  [main] communication.NetworkCommunicator: Connection to server was closed
+2016-10-24 22:44:18,319 INFO  [main] communication.NetworkCommunicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 13]
+2016-10-24 22:44:18,319 INFO  [main] communication.NetworkCommunicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 13]
+2016-10-24 22:44:18,319 INFO  [main] communication.NetworkCommunicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 13]
+2016-10-24 22:44:18,319 INFO  [main] communication.NetworkCommunicator: Message to send in byte: [104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 13]
+2016-10-24 22:44:18,321 ERROR [main] communication.Communicator: Socket closed
+2016-10-24 22:44:18,321 ERROR [main] communication.Communicator: Socket closed
+2016-10-24 22:44:18,321 ERROR [main] communication.Communicator: Socket closed
+2016-10-24 22:44:18,321 ERROR [main] communication.Communicator: Socket closed
+2016-10-24 22:44:18,321 ERROR [main] communication.Communicator: Socket closed
+2016-10-24 22:49:20,696 INFO  [main] ui.Application: Application started
+2016-10-24 22:49:24,121 WARN  [main] communication.Communicator: Port could not be parsed, it is not a number
+2016-10-24 22:49:56,910 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 22:49:56,981 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 22:49:57,041 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 22:50:07,800 INFO  [main] communication.NetworkCommunicator: Message to send in byte: [109, 101, 115, 115, 97, 103, 101, 32, 13]
+2016-10-24 22:50:07,806 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [109, 101, 115, 115, 97, 103, 101, 32, 10, 13]
+2016-10-24 22:50:13,683 INFO  [main] communication.NetworkCommunicator: Message to send in byte: [104, 105, 32, 13]
+2016-10-24 22:50:13,688 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [104, 105, 32, 10, 13]
+2016-10-24 22:50:18,051 INFO  [main] communication.NetworkCommunicator: Connection to server was closed
+2016-10-24 22:50:24,530 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 22:50:24,557 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 22:50:24,564 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 22:50:45,185 INFO  [main] communication.NetworkCommunicator: Message to send in byte: [104, 105, 32, 13]
+2016-10-24 22:50:45,201 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [104, 105, 32, 10, 13]
+2016-10-24 22:50:51,983 INFO  [main] communication.NetworkCommunicator: Message to send in byte: [100, 114, 97, 116, 117, 116, 105, 32, 13]
+2016-10-24 22:50:52,018 INFO  [main] communication.NetworkCommunicator: Recieved message in byte: [100, 114, 97, 116, 117, 116, 105, 32, 10, 13]
+2016-10-24 22:58:14,260 INFO  [main] ui.Application: Application started
+2016-10-24 22:58:37,807 ERROR [main] communication.Communicator: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+2016-10-24 22:59:24,983 INFO  [main] ui.Application: Application started
+2016-10-24 23:00:06,334 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 23:00:06,404 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 23:00:06,460 DEBUG [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 23:00:06,461 INFO  [main] communication.Communicator: Unmarshaled message Connection to MSRG Echo server established: /131.159.52.2 / 50000
+2016-10-24 23:00:55,055 ERROR [main] communication.Communicator: Socket closed
+2016-10-24 23:01:13,862 ERROR [main] communication.Communicator: Socket closed
+2016-10-24 23:01:17,254 ERROR [main] communication.Communicator: Socket closed
+2016-10-24 23:02:25,358 INFO  [main] ui.Application: Application started
+2016-10-24 23:03:50,988 INFO  [main] ui.Application: Application started
+2016-10-24 23:04:19,328 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 23:04:19,402 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 23:04:19,420 DEBUG [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 23:04:19,420 INFO  [main] communication.Communicator: Unmarshaled message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+2016-10-24 23:04:24,220 INFO  [main] communication.NetworkCommunicator: Connection to server was closed
+2016-10-24 23:04:37,322 INFO  [main] communication.NetworkCommunicator: Connection to server was closed
+2016-10-24 23:04:45,268 INFO  [main] ui.Application: Application started
+2016-10-24 23:04:49,477 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 23:04:49,544 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 23:04:49,548 DEBUG [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 23:04:49,549 INFO  [main] communication.Communicator: Unmarshaled message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+2016-10-24 23:04:54,494 INFO  [main] communication.NetworkCommunicator: Connection to server was closed
+2016-10-24 23:06:08,675 INFO  [main] ui.Application: Application started
+2016-10-24 23:06:18,839 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 23:06:18,903 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 23:06:18,914 DEBUG [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 23:06:18,915 INFO  [main] communication.Communicator: Unmarshaled message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+2016-10-24 23:06:22,383 INFO  [main] communication.NetworkCommunicator: Connection to server was closed
+2016-10-24 23:06:33,093 INFO  [main] communication.Communicator: Message to send: hello 
+2016-10-24 23:06:37,136 INFO  [main] communication.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-24 23:06:37,141 INFO  [main] communication.NetworkCommunicator: Connection established successfuly
+2016-10-24 23:06:37,145 DEBUG [main] communication.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-24 23:06:37,145 INFO  [main] communication.Communicator: Unmarshaled message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+2016-10-24 23:07:13,637 ERROR [main] communication.Communicator: connect timed out
+2016-10-24 23:08:29,250 INFO  [main] ui.Application: Application started
