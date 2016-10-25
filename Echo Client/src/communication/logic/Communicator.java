@@ -1,9 +1,20 @@
 package communication.logic;
 
+import java.io.FileReader;
+
 import org.apache.log4j.Logger;
 
 import communication.marshaller.StringMarshaller;
 import ui.LoggerInitializer;
+
+/**
+ * The Class Communicator makes the connection to the server based on
+ * the given server address and the port number of the echo service.
+ * The maximal message size that the user can send to the server is
+ * specified here.
+ * 
+ * @see NetworkCommunicator
+ */
 
 public class Communicator {
 
