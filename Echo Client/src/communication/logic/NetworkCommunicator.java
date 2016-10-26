@@ -14,6 +14,15 @@ import org.apache.log4j.Logger;
 
 import ui.LoggerInitializer;
 
+/**
+ * The class NetworkCommunicator is responsible for sending the user's 
+ * message to the server and receiving the echo answer from the server.
+ * This class also includes the function that disconnects the user from 
+ * the server.
+ * 
+ */
+
+
 public class NetworkCommunicator {
 	
 	private Socket echoSocket;

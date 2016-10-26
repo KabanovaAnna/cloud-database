@@ -8,7 +8,8 @@ import org.apache.log4j.*;
 
 /** 
  * This class is needed to create logger and enable logging for console and file,
- * that can be found under "logs/client.log". Information is logged at all levels.
+ * that can be found under "logs/client.log". Logging level can be set dynamically.
+ * Default level: Error.
  */
 public class LoggerInitializer {
 	
