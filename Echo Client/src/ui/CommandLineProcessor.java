@@ -8,6 +8,19 @@ import org.apache.log4j.*;
 
 import communication.logic.Communicator;
 
+/** 
+ * This class is needed to process the user input from the console. 
+ * It reads the input, analyzes it and differentiates the command from the 
+ * rest of the message.
+ * This class gets the address and the port number and creates an Object of type
+ * Communicator that is used in the Communicator class to build the connection 
+ * to the server.
+ * It also provides the commands: connect, disconnect, send, logLevel, help and quit
+ * from which the user can chose. 
+ * 
+ * @see Communicator
+ */
+
 public class CommandLineProcessor {
 
 	private static String[] input;

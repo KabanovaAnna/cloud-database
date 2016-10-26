@@ -2,6 +2,12 @@ package communication.marshaller;
 
 import java.nio.charset.Charset;
 
+/**
+ * The class StringMarshaller provides the two functions needed to convert from
+ * byte Array to String and vice versa. 
+ */
+
+
 public class StringMarshaller implements Marshaller {
 	
 	private final char CARRIAGE = (char) 13;
