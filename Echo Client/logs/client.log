@@ -434,3 +434,10 @@
 2016-10-24 23:08:29,250 INFO  [main] ui.Application: Application started
 2016-10-24 23:18:08,665 ERROR [main] communication.logic.Communicator: connect timed out
 2016-10-24 23:18:24,691 ERROR [main] communication.logic.Communicator: port out of range:234523521
+2016-10-25 13:27:37,317 INFO  [main] communication.logic.NetworkCommunicator: Connection to server was closed
+2016-10-25 13:27:44,057 INFO  [main] communication.logic.NetworkCommunicator: Try to establish connection with address: 131.159.52.2/50000
+2016-10-25 13:27:44,060 INFO  [main] communication.logic.NetworkCommunicator: Connection established successfuly
+2016-10-25 13:27:44,064 DEBUG [main] communication.logic.NetworkCommunicator: Recieved message in byte: [67, 111, 110, 110, 101, 99, 116, 105, 111, 110, 32, 116, 111, 32, 77, 83, 82, 71, 32, 69, 99, 104, 111, 32, 115, 101, 114, 118, 101, 114, 32, 101, 115, 116, 97, 98, 108, 105, 115, 104, 101, 100, 58, 32, 47, 49, 51, 49, 46, 49, 53, 57, 46, 53, 50, 46, 50, 32, 47, 32, 53, 48, 48, 48, 48, 10, 13]
+2016-10-25 13:27:44,064 INFO  [main] communication.logic.Communicator: Unmarshaled message: Connection to MSRG Echo server established: /131.159.52.2 / 50000
+2016-10-25 13:38:42,346 ERROR [main] communication.logic.Communicator: port out of range:234234
+2016-10-25 13:38:51,952 ERROR [main] communication.logic.Communicator: connect timed out
