@@ -14,7 +14,7 @@ public class KVServer extends Thread {
 	private static Logger logger = Logger.getRootLogger();
 	private int port;
 	private boolean running;
-
+	
 	/**
 	 * Start KV Server at given port
 	 * @param port given port for storage server to operate
@@ -40,20 +40,23 @@ public class KVServer extends Thread {
 		if(serverSocket != null) {
 			while(isRunning()){
 				try {
-					Socket client = serverSocket.accept();                
-					ClientConnection connection = new ClientConnection(client);
-					new Thread(connection).start();
-
-					logger.info("Connected to " 
-							+ client.getInetAddress().getHostName() 
-							+  " on port " + client.getPort());
+					listen();
 				} catch (IOException e) {
-					logger.error("Error! " +
-							"Unable to establish connection. \n", e);
+					logger.error("Error! " + "Unable to establish connection. \n", e);
 				}
 			}
 		}
 		logger.info("Server stopped.");
+	}
+	
+	private void listen() throws IOException {
+		Socket client = serverSocket.accept();                
+		ClientConnection connection = new ClientConnection(client);
+		new Thread(connection).start();
+
+		logger.info("Connected to " 
+				+ client.getInetAddress().getHostName() 
+				+  " on port " + client.getPort());
 	}
 
 	private boolean isRunning() {
@@ -95,15 +98,7 @@ public class KVServer extends Thread {
 	 */
 	public static void main(String[] args) {
 		try {
-			new LogSetup("logs/server.log", Level.ALL);
-			if(args.length != 1) {
-				System.out.println("Error! Invalid number of arguments!");
-				System.out.println("Usage: Server <port>!");
-			} else {
-				int port = Integer.parseInt(args[0]);
-				//TODO set right parameters
-				new KVServer(port, 1, "FIFO").start();
-			}
+			processArgs(args);
 		} catch (IOException e) {
 			System.out.println("Error! Unable to initialize logger!");
 			e.printStackTrace();
@@ -112,6 +107,18 @@ public class KVServer extends Thread {
 			System.out.println("Error! Invalid argument <port>! Not a number!");
 			System.out.println("Usage: Server <port>!");
 			System.exit(1);
+		}
+	}
+	
+	private static void processArgs(String[] args) throws IOException {
+		new LogSetup("logs/server.log", Level.ALL);
+		if(args.length != 1) {
+			System.out.println("Error! Invalid number of arguments!");
+			System.out.println("Usage: Server <port>!");
+		} else {
+			int port = Integer.parseInt(args[0]);
+			//TODO set right parameters
+			new KVServer(port, 1, "FIFO").start();
 		}
 	}
 }

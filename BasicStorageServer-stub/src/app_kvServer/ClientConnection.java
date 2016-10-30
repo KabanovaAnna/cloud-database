@@ -157,6 +157,4 @@ public class ClientConnection implements Runnable {
 		return msg;
     }
 	
-
-	
 }
