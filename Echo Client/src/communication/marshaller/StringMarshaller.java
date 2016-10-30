@@ -8,7 +8,7 @@ import java.nio.charset.Charset;
  */
 
 
-public class StringMarshaller implements Marshaller {
+public class StringMarshaller implements Marshaller<String> {
 	
 	private final char CARRIAGE = (char) 13;
 	private final String CHARSET = "US-ASCII";

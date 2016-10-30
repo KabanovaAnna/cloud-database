@@ -1,9 +1,9 @@
 package communication.marshaller;
 
-public interface Marshaller {
+public interface Marshaller<T> {
 
-	public byte[] marshal(String message);
+	public byte[] marshal(T message);
 	
-	public String unmarshal(byte[] message);
+	public T unmarshal(byte[] message);
 	
 }

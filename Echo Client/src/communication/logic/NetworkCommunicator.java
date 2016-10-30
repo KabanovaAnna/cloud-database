@@ -22,7 +22,6 @@ import ui.LoggerInitializer;
  * 
  */
 
-
 public class NetworkCommunicator {
 	
 	private Socket echoSocket;
