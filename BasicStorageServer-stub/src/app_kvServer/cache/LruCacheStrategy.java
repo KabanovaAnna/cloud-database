@@ -1,17 +1,46 @@
 package app_kvServer.cache;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+
+import app_kvServer.KVTuple;
+
 public class LruCacheStrategy implements CacheStrategy {
 
-	@Override
+	private LinkedList<KVTuple> queue;
+	private HashMap<String, String> kvPairs;
+	
 	public void addElement(String key, String value) {
-		// TODO Auto-generated method stub
-		
+		queue = new LinkedList<>();
+		kvPairs = new HashMap<>();
 	}
 
-	@Override
 	public String getValueFor(String key) {
-		// TODO Auto-generated method stub
-		return null;
+		KVTuple tuple = new KVTuple(key, kvPairs.get(key));
+		queue.remove(tuple);	
+		queue.addFirst(tuple);
+		return tuple.getValue();
+	}
+
+	public boolean contains(String key) {
+		return kvPairs.containsKey(key);
+	}
+
+	public void updateElement(String key, String value) {
+		KVTuple oldTuple = new KVTuple(key, kvPairs.get(key));
+		kvPairs.replace(key, value);
+		queue.remove(oldTuple);
+		queue.addFirst(new KVTuple(key, value));
+	}
+
+	public KVTuple deleteElement() {
+		KVTuple tuple = queue.pollLast();
+		kvPairs.remove(tuple.getKey());
+		return tuple;
+	}
+
+	public int size() {
+		return kvPairs.size();
 	}
 
 }

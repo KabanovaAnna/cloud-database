@@ -1,6 +1,6 @@
 package app_kvServer.cache;
 
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.LinkedList;
 
 import app_kvServer.KVTuple;
@@ -8,31 +8,38 @@ import app_kvServer.KVTuple;
 public class FifoCacheStrategy implements CacheStrategy {
 
 	private LinkedList<KVTuple> queue;
+	private HashMap<String, String> kvPairs;
 	
 	public FifoCacheStrategy() {
-		queue = new LinkedList<KVTuple>(); 
+		queue = new LinkedList<>();
+		kvPairs = new HashMap<>();		
 	}
-	
-	@Override
+
 	public void addElement(String key, String value) {
-		if (queue.size() == MAX_CACHE_SIZE) {
-			deleteElement();
-		}
+		kvPairs.put(key, value);
 		queue.add(new KVTuple(key, value));
 	}
 	
-	private KVTuple deleteElement() {
-		return queue.pollFirst();
+	public KVTuple deleteElement() {
+		KVTuple tuple = queue.removeFirst();
+		kvPairs.remove(tuple.getKey());
+		return tuple;
 	}
 
-	@Override
 	public String getValueFor(String key) {
-		Iterator<KVTuple> iterator = queue.iterator();
-		while (iterator.hasNext()) {
-			KVTuple element = iterator.next();
-			if (key.equals(element.getKey())) return element.getValue();
-		}
-		return null;
+		return kvPairs.get(key);
+	}
+
+	public boolean contains(String key) {
+		return kvPairs.containsKey(key);
+	}
+
+	public void updateElement(String key, String value) {
+		kvPairs.replace(key, value);
+	}
+
+	public int size() {
+		return kvPairs.size();
 	}
 	
 }

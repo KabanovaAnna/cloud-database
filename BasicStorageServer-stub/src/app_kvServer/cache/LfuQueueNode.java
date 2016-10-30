@@ -9,6 +9,7 @@ public class LfuQueueNode {
 	
 	public LfuQueueNode(KVTuple tuple) {
 		this.tuple = tuple;
+		this.freqeuncy = 0;
 	}
 
 	public KVTuple getTuple() {
