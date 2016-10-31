@@ -7,6 +7,11 @@ import java.net.Socket;
 
 import org.apache.log4j.*;
 
+import common.messages.KVMessage;
+import common.messages.KVMessage.StatusType;
+import common.messages.KVMessageItem;
+import common.messages.Marshaller;
+
 
 /**
  * Represents a connection end point for a particular client that is 
@@ -42,41 +47,51 @@ public class ClientConnection implements Runnable {
 	 */
 	public void run() {
 		try {
-			output = clientSocket.getOutputStream();
-			input = clientSocket.getInputStream();
-		
-			sendMessage(new TextMessage(
-					"Connection to MSRG Echo server established: " 
-					+ clientSocket.getLocalAddress() + " / "
-					+ clientSocket.getLocalPort()));
-			
-			while(isOpen) {
-				try {
-					TextMessage latestMsg = receiveMessage();
-					sendMessage(latestMsg);
-					
-				/* connection either terminated by the client or lost due to 
-				 * network problems*/	
-				} catch (IOException ioe) {
-					logger.error("Error! Connection lost!");
-					isOpen = false;
-				}				
-			}
-			
+			receiveAndProcessMessage();
 		} catch (IOException ioe) {
-			logger.error("Error! Connection could not be established!", ioe);
-			
-		} finally {
-			
+			logger.error("Error! Connection could not be established!", ioe);	
+		} finally {			
 			try {
-				if (clientSocket != null) {
-					input.close();
-					output.close();
-					clientSocket.close();
-				}
+				closeConnection();
 			} catch (IOException ioe) {
 				logger.error("Error! Unable to tear down connection!", ioe);
 			}
+		}
+	}
+	
+	private void receiveAndProcessMessage() throws IOException {
+		output = clientSocket.getOutputStream();
+		input = clientSocket.getInputStream();	
+		while(isOpen) {
+			try {
+				KVMessage receivedMessage = receiveMessage();
+				KVMessage returnMessage = processMessage(receivedMessage);
+				sendMessage(returnMessage);
+			} catch (IOException ioe) {
+				logger.error("Error! Connection lost!");
+				isOpen = false;
+			}				
+		}
+	}
+	
+	private KVMessage processMessage(KVMessage message) {
+		if (message.getStatus().equals(StatusType.GET)) {
+			KVMessage getResult = PersistenceLogic.get(message.getKey());
+			return getResult;
+		} else if (message.getStatus().equals(StatusType.PUT)) {
+			StatusType status = PersistenceLogic.put(message.getKey(), message.getValue());
+			return new KVMessageItem(status);
+		} else {
+			logger.error("Unnown message status, can not be proceeded.");
+			return null;
+		}
+	}
+	
+	private void closeConnection() throws IOException {
+		if (clientSocket != null) {
+			input.close();
+			output.close();
+			clientSocket.close();
 		}
 	}
 	
@@ -85,19 +100,18 @@ public class ClientConnection implements Runnable {
 	 * @param msg the message that is to be sent.
 	 * @throws IOException some I/O error regarding the output stream 
 	 */
-	public void sendMessage(TextMessage msg) throws IOException {
-		byte[] msgBytes = msg.getMsgBytes();
+	public void sendMessage(KVMessage message) throws IOException {
+		byte[] msgBytes = Marshaller.marshal(message);
 		output.write(msgBytes, 0, msgBytes.length);
 		output.flush();
 		logger.info("SEND \t<" 
 				+ clientSocket.getInetAddress().getHostAddress() + ":" 
 				+ clientSocket.getPort() + ">: '" 
-				+ msg.getMsg() +"'");
+				+ "key: " + message.getKey() 
+				+ ", value: " + message.getValue() + "'");
     }
 	
-	
-	private TextMessage receiveMessage() throws IOException {
-		
+	private KVMessage receiveMessage() throws IOException {
 		int index = 0;
 		byte[] msgBytes = null, tmp = null;
 		byte[] bufferBytes = new byte[BUFFER_SIZE];
@@ -106,8 +120,7 @@ public class ClientConnection implements Runnable {
 		byte read = (byte) input.read();	
 		boolean reading = true;
 		
-		while(read != 13 && reading) {/* carriage return */
-			/* if buffer filled, copy to msg array */
+		while(read != 13 && reading) {
 			if(index == BUFFER_SIZE) {
 				if(msgBytes == null){
 					tmp = new byte[BUFFER_SIZE];
@@ -149,12 +162,11 @@ public class ClientConnection implements Runnable {
 		msgBytes = tmp;
 		
 		/* build final String */
-		TextMessage msg = new TextMessage(msgBytes);
+		KVMessage msg = Marshaller.unmarshal(msgBytes);
 		logger.info("RECEIVE \t<" 
 				+ clientSocket.getInetAddress().getHostAddress() + ":" 
 				+ clientSocket.getPort() + ">: '" 
-				+ msg.getMsg().trim() + "'");
+				+ msg.getStatus().toString() + "'");
 		return msg;
-    }
-	
+    }	
 }

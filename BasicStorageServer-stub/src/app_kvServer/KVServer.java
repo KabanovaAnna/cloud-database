@@ -36,7 +36,7 @@ public class KVServer extends Thread {
 	 */
 	public void run() {
 		running = initializeServer();
-
+		
 		if(serverSocket != null) {
 			while(isRunning()){
 				try {
