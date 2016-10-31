@@ -40,7 +40,7 @@ public class Marshaller {
 		} else if (type.equals(StatusType.GET)) {
 			message.setKey(messageTokens[1]);
 		} else if(type.equals(KVMessage.StatusType.PUT)){
-			message.setValue(messageTokens[1]);
+			message.setKey(messageTokens[1]);
 			message.setValue(messageTokens[2]);
 		}
 		return message;
@@ -48,14 +48,8 @@ public class Marshaller {
 	
 	private static String[] getMessageTokens(byte[] message){
 		String receivedMessage = new String(message, Charset.forName(CHARSET));
-		String[] messageTokens = receivedMessage.split(String.valueOf(UNIT_SEPARATOR));
-		return deleteCarriage(messageTokens);
+		receivedMessage = receivedMessage.substring(0, receivedMessage.length() - 1);
+		return receivedMessage.split(String.valueOf(UNIT_SEPARATOR));
 	}
 
-	private static String[] deleteCarriage(String[] messageTokens) {
-		String lastToken = messageTokens[messageTokens.length - 1];
-		lastToken.substring(0, lastToken.length() - 1);
-		messageTokens[messageTokens.length - 1] = lastToken;
-		return messageTokens;
-	}
 }
